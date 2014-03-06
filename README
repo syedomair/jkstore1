@@ -1,0 +1,15 @@
+
+Install composer with the following line
+curl -sS https://getcomposer.org/installer | php
+
+Get vendor libraries with the following line. 
+php composer.phar install
+
+Give permission to app/cache directory
+chmod 777 app/cache
+
+Create a link from htdocs directory
+ln -s {install dir}/jkstore jkstore
+
+Configure mysql ORM in app/config.php file 
+Create and insert data in MySQL through jkstore.sql
