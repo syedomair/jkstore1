@@ -10,15 +10,8 @@ $app['cache.path'] = __DIR__ .'/cache';
 $app['twig.path'] = __DIR__.'/views'; 
 $app['twig.options.cache'] = $app['cache.path'] ;
 
-//Doctrine (mysql db link)
-$app['db.options'] = array(
-    'driver'   => 'pdo_mysql',
-    'host'     => '127.0.0.1',
-    'port'     => '3306',
-    'dbname'   => 'jkstore',
-    'user'     => '',
-    'password' => '',
-);
+//Redbean mysql configuration
+R::setup('mysql:host=localhost;dbname=jkstore','','');
 
 //enable the debug mode
 $app['debug'] = true;

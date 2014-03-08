@@ -9,9 +9,10 @@ class HomeController {
 
     public function homeAction(Request $request, Application $app) {
 
-        $categoriesCollection = $app['repository.category']->findAll();
+       	$rbCat = \R::getAll( 'select * from Category' );
+ 
         $data = array(
-            'groupCategories' => $categoriesCollection 
+            'groupCategories' => $rbCat 
 	);
         return $app['twig']->render('home.html.twig', $data);
     }

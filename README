@@ -1,3 +1,8 @@
+JKStore1 is an example code using Silex, Twig, RedBean, and PHPUnit
+--------------------------------------------------------------------
+
+Installation Direction
+-----------------------
 
 Install composer with the following line
 curl -sS https://getcomposer.org/installer | php
@@ -5,11 +10,19 @@ curl -sS https://getcomposer.org/installer | php
 Get vendor libraries with the following line. 
 php composer.phar install
 
-Give permission to app/cache directory
+Create redbean directory under vendor and download rb.php into it.
+mkdir vendor/redbean
+
+Create and give permission to app/cache directory
+mkdir app/cache
 chmod 777 app/cache
 
 Create a link from htdocs directory
-ln -s {install dir}/jkstore jkstore
+ln -s {install dir}/jkstore1 jkstore1
 
-Configure mysql ORM in app/config.php file 
+Configure redbean mysql ORM in app/config.php file 
 Create and insert data in MySQL through jkstore.sql
+
+Run phpunit test with the following line
+./vendor/bin/phpunit -c app/
+

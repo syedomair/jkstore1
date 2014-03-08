@@ -8,12 +8,16 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductDisplayController {
 
     public function productDisplayAction(Request $request, Application $app) {
-        $categoriesCollection = $app['repository.category']->findAll();
-        $product = $app['repository.product']->find($request->attributes->get('prodId'));
+       	
+	$rbCat = \R::getAll( 'select * from Category' );
+    	
+	$rbProduct = \R::getRow( 'select * from Product where product_id = :prodId', 
+	        array(':prodId'=>$request->attributes->get('prodId')) 
+    	);
 
         $data = array(
-            'aProduct'=> $product,
-            'groupCategories' => $categoriesCollection 
+            'aProduct'=> $rbProduct,
+            'groupCategories' => $rbCat 
 	);
         return $app['twig']->render('product.html.twig', $data);
     }
